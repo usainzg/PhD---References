@@ -1,0 +1,27 @@
+\section{Polyhedral}\label{sec:polly}
+\subsection{Employing polyhedral methods to optimize stencils on FPGAs with stencil-specific caches, data reuse, and wide data bursts}
+
+\subsection{Modelling linear algebra kernels as polyhedral volume operations}
+
+\subsection{Superloop Scheduling: Loop Optimization via Direct Statement Instance Reordering}
+In \cite{bastoul2023superloop}, they propose a different approach to affine scheduling construction called superloop scheduling. A 7-step loop optimization process:
+\begin{itemize}
+    \item Iteration space bounding: limit the number of iterations and replaces the parameters with known values.
+    \item Full loop unrolling: transform the code to a sequence of statement instances.
+    \item Statement instance reordering: transform the unrolled code via direct reasoning and manipulation of the statement instances. Parallel block extraction and internal reordering to enable vectorization. Also, basic block level techniques such as superword level parallelisation \cite{Mendis_2018} to enable possibly unprecedented loop vectorization opportunities. Reordering policies should include constraints or mechanisms to favor some regularity when possible.
+    \item Nested loop recognition (NLR): recover loops in a fast and incremental way \cite{ketterlin2008prediction} from a trace comprised of tagged vectors of numbers. NLR is able to recover arbitrarily deep and/or complex affine loop nests from their traces.
+    \item Affine scheduling reconstruction: build an affine scheduling expression from the loop structure and the mapping information present in NLR’s output. Also, attempt to recover parameters, e.g. through pattern-matching.
+    \item Legality check: verify the scheduling correctness on the original input code using the Candl tool, and may assess its properties such as parallel and vector dimensions.
+    \item Code generation: produce the optimized code that implements the scheduling using, e.g., CLooG \cite{bastoul2004code}. The optimization is different than both Feautrier \cite{feautrier1992some} (which favors k, i, j version with internal parallelism) and Pluto without tiling \cite{bondhugula2008practical} (which splits S0 and S1 in two loop nests to enable i, k, j order for S1, or uses less CPU-efficient i, j, k).
+\end{itemize}
+Two families of techniques for affine scheduling construction:
+\begin{itemize}
+    \item Compute the scheduling by solving systems of affine constraints: proposed by Feautrier \cite{feautrier1992some} and has set the ground for many later techniques, the Pluto algorithm designed by Bondhugula et al. to extract outermost parallelism, data locality and tilable loops \cite{bondhugula2008practical}, and a number of variants that differ in the way the affine constraint system is built.
+    \item Build the affine scheduling by composition of basic primitives: proposed by Kelly and Pugh \cite{kelly1998framework} and improved by many authors, e.g., Baghdadi et al. who propose a rich scheduling language for the Tiramisu framework \cite{baghdadi2019tiramisu}. 
+\end{itemize}
+However, in this work, they present the seed for a new family that builds affine scheduling from finest-grain statement instance reordering and loop reconstruction. Which could have a significant potential for exploiting custom vector instructions.
+
+\textbf{Important note:} presented at IMPACT 2023, a short (working?) paper.
+
+\subsection{Pipelined Multithreading Generation in a Polyhedral Compiler}
+

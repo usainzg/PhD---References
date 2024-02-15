@@ -1,0 +1,71 @@
+\section{Papers}\label{sec:papers}
+\subsection{Learning to Optimize Tensor Programs}
+In \cite{Chen2018LearningTO}, they introduce a learning-based framework to optimize tensor programs for deep learning workloads, i.e., AutoTVM.
+\begin{itemize}
+    \item Domain-specific statistical cost models, i.e., machine learning, to guide the search of tensor operator implementations over billions of possible program variants, i.e., multiple variants of low-level code that are logically equivalent.
+    \item They try to optimize tensor operator programs for a given hardware platform. Domain-specific features from a given low-level abstract syntax tree (AST) $x$. The features include loop structure information (e.g., memory access count and data reuse ratio) and generic annotations (e.g., vectorization, unrolling, thread binding).
+    \item Gradient boosted trees (XGBoost) and TreeGRU (embedding vectors).
+\end{itemize}
+Prerequisites for automatic code generation: (1) We need to define an exhaustive search space that covers all hardware-aware optimizations in hand-tuned libraries. (2) We need to efficiently find an optimal schedule in the search space. 
+
+For the search space, polyhedral models \cite{Bondhugula2008APA} model the loop domains as integer linear constraint, Halide \cite{RaganKelley2013HalideAL} defines a schedule space using a set of transformation primitives. \textbf{Improving the search space $S_e$ is an important research direction, they do not explore it}, i.e., pick a rich $S_e$ and focus on schedule optimization. They use primitives from a existing code generation framework, TVM, to form the search space. This $S_e$ includes multi-level tiling on each loop axis, loop ordering, shared memory caching for GPUs, and annotations such as unrolling and vectorization. Billions of possible implementations for a single GPU operator.
+
+\subsection{Micro-kernels for portable and efficient matrix multiplication in deep learning}
+\uwar{to review}
+
+\subsection{ALCOP: Automatic Load-Compute Pipelining in Deep Learning Compiler for AI-GPUs}
+\cite{huang_alcop_2023} overcome three critical obstacles in generating code for pipelining\footnote{the overlap of data loading and computing – is an ideal mechanism for unleashing intra-tile parallelism.}: detection of pipelining-applicable buffers, program transformation for multi-level multi-stage pipelining, and efficient schedule parameter search by incorporating static analysis. Three decoupled and collaborative compilation modules: pipeline buffer detection, pipeline program transformation, and analytical-model guided design space search.
+\begin{itemize}
+    \item Pipeline buffer detection addresses the workload complexity because it occurs during the scheduling phase when the entire dataflow is visible.
+    \item The second module addresses the hardware complexity. During the program transformation stage, the intricate for-loop structure and data movement are revealed and modified. This module utilizes the safety check of the preceding module to execute the robust transformation.
+    \item The third module addresses the design space complexity. It happens at the auto-tuning stage, where pipelining and other techniques are co-optimized. This module makes use of the preceding parameterized module.
+\end{itemize}
+
+Schedule transformation attaches pipelining primitives to buffer variables in the program, i.e., identify and record ``load-and-use'' structures of the program. Program transformation transforms the program IR (intermediate representation) to implement pipelining. Static analysis guided tuning combines static analytical performance model (see Figure 8) with the existing ML based auto-tuning to choose schedule parameters.
+
+Recently, static analysis has arisen to supplement the standard ML-based schedule tuning, whose cost model lacks hardware knowledge. Tuna \cite{Wang2021TunaAS} builds a performance model for CPU and GPU to replace the ML-based schedule tuning in AutoTVM \cite{Chen2018LearningTO}. Here, they combine ML and static analytical model, with better results than Tuna.
+
+This paper addresses the important need for automatic pipelining in deep learning compilers. Due to the large tiling size required to mitigate bandwidth constraints, inter-tile parallelism is inadequate for achieving high utilization, and intra-tile pipelining becomes essential. Multi-stage, multi-level pipelining.
+
+\subsection{PolyScientist: Automatic Loop Transformations Combined with Microkernels for Optimization of Deep Learning Primitives}
+In \cite{Tavarageri2020PolyScientistAL}, they develop a hybrid solution to the development of deep learning kernels that achieves the best of both worlds: the expert coded \textit{microkernels} are utilized for the innermost loops of kernels that exploit the vector register files, and vector units of modern \textbf{CPUs} effectively, and they use the advanced polyhedral compilation technology to automatically tune the outer loops for performance. They design a novel polyhedral model based data reuse algorithm to optimize the outer loops of the kernel. Evaluating on an important class of deep learning primitives namely convolutions, they demonstrate that the approach developed attains the same levels of performance as Intel MKL-DNN, a hand coded deep learning library.
+\begin{itemize}
+    \item 95\% of all deep learning applications running in the data centers today have a recurring pattern in the inner most loops, namely blocked matrix multiplication \cite{Georganas2019HighPerformanceDL, Hwang2017IndatacenterPA}.
+    \item Generated code variants (through code-generator) are then analyzed by our novel data reuse algorithm – \textit{PolyScientist} to characterize their cache behavior. They have developed a relative ranking algorithm which ranks the $n$ variants based on their potential performance. The top $k$ variants are selected and are run on the target hardware and the best performing program version is discovered. From $n$ to $k$ variants actually run on the target architecture, i.e., we suppose that $k \ll n$.
+    \item \textit{Relative ranking} heuristic that takes the compiler generated statistics and the system parameters, i.e., cache sizes and ranks the program variants based on their potential performance.
+    \item Polyhedral model based cache data reuse analysis to characterize a loop-nest’s behavior with respect to a given cache hierarchy. The analysis computes the various existing data reuses of a program and then for the input cache hierarchy determines which data reuses are exploitable at various levels of cache.
+    \item Variants ranking based on performance cost model and DNN-based (tournament based ranking system to assign ranks to the different code versions created – we play each code variant against every other code variant).
+    \item TVM, a compiler for deep learning, introduces the concept of \textit{tensorization}, where a unit of computation can be replaced with a microkernel written using hardware intrinsics.
+\end{itemize}
+
+\subsection{Domain-Specific Multi-Level IR Rewriting for GPU: The Open Earth Compiler for GPU-accelerated Climate Simulation}
+In \cite{gysi_domain-specific_2021} practical case study implementing a domain-specific compiler for weather and climate modeling. They propose to design DSL compilers using \textit{multi-level IR rewriting}. This approach is a combination of (a) intermediate representations (IR) based on Static Single Assignment form
+(SSA) \cite{Rosen1988GlobalVN}, (b) operations with high-level semantics, and (c) progressive lowering, which provides an effective framework for reusable domain-specific high-performance code generation. SSA-based IRs allow us to reuse optimizations from general-purpose compilers.
+
+\begin{itemize}
+    \item Multi-level rewriting instantiates a hierarchy of dialects (IRs), lowers programs level-by-level, and performs code transformations at the most suitable level.
+    \item A set of MLIR dialects, i.e., collections of domain-specific operations and transformations, and conversions between them.
+    \item Multi-level IR rewriting and the associated design principles is a promising approach to rapidly design and deploy domain-specific compilers that can take advantage of reusable components of the MLIR ecosystem.
+\end{itemize}
+
+\subsection{TensorIR: An Abstraction for Automatic Tensorized Program Optimization}
+In \cite{Feng2022TensorIRAA}, they present a compiler abstraction for optimizing programs with these tensor computation primitives. Generalizes the loop nest representation used in existing machine learning compilers. TensorIR compilation automatically uses the tensor computation primitives for given hardware backends. Challenges bringing automatic program optimization to tensorized programs:
+\begin{itemize}
+    \item \textit{Abstraction for Tensorized Programs}: we need an abstraction that can pragmatically capture possible equivalent tensorized computations for a given machine learning operator. Notably, the abstraction needs to represent multi-dimensional memory accesses, threading hierarchies, and tensorized computation primitives from different hardware backends.
+    \item \textit{Large Design Space of Possible Tensorized Program Optimizations}: we need an effective way to find an optimized tensorized program for a given search space.
+\end{itemize}
+TensorIR parts:
+\begin{itemize}
+    \item How to write? $\rightarrow$ TVMScript (python-AST based syntax, i.e., parsed by python-AST) with multi-dim buffers, loop nests and computational blocks (vectorized/tensorized computation). A block contains four major parts: outside loop nesting, block iterator domain, producer/consumer dependency relations and the block body (only indexed by block iterator).
+    \item How to optimize? $\rightarrow$ Interactive Schedule on Tensorized Body (tree manipulation, block isolation, easy tensorization, interactivity).
+    \item How to customize? $\rightarrow$ Decoupled Primitives
+\end{itemize}
+
+\subsection{PowerFusion: A Tensor Compiler with Explicit Data Movement Description and Instruction-level Graph IR}
+In \cite{ma_powerfusion_2023}, they present a tensor compiler that can generate high-performance code for memory-intensive operators by considering both computation and data movement optimizations. Represent a DNN program using GIR (instruction-level graph IR), which includes primitives indicating its computation, data movement, and parallel strategies. This information will be further composed as an instruction-level dataflow graph to perform holistic optimizations by searching different memory access patterns and computation operations, and generating memory-efficient code on different hardware.
+\begin{itemize}
+    \item Explicit description of data movement in the IR. Compiler needs to analyze data dependencies at a fine granularity to reuse data using high-level memory hierarchy.
+    \item TVM and Ansor represent a tensor program with an abstraction of compute and schedule, inspired by Halide. They first convert DNN models into a loop-based IR (compute) and apply series of optimizations (schedule) to transform DNN programs to find better performance. Efficient code tailored to specific architectures.
+    \item Three challenges for memory-intensive programs: implicit data movement representation (implicit through the schedule, challenging to assess memory performance during optimization), schedule search order (generation order prevents the application of different memory access patterns), and coarse-grained dependence analysis (limits dependence analysis only to loops).
+    \item They represent tensor programs using GIR, three primitives: parallel (parallel strategies for a given computation), and the computation and data movement primitives, which they call gOperators, are constructed as nodes of an instruction-level dataflow graph, called GIR-Graph, and the edge between them represents the data on certain memory hierarchy and also their dependence. By explicitly expressing memory access operations and instruction-level dependence, they can search different memory access pattern for multiple computing operations.
+\end{itemize}
