@@ -1,7 +1,28 @@
 \section{Polyhedral}\label{sec:polly}
+\subsection{A practical tile size selection model for affine loop nests}
+
+\subsection{Maximal Atomic irRedundant Sets: a Usage-based Dataflow Partitioning Algorithm}
+
+\subsection{Polygeist: Affine C in MLIR}
+
+\subsection{Automatic multi-dimensional pipelining for high-level synthesis of dataflow accelerators}
+
+\subsection{Scalable Polyhedral Compilation, Syntax vs. Semantics: 1–0 in the First Round}
+In \cite{48842}, a family of techniques called offline statement clustering, which integrates transparently into the flow of a state-of-the-art polyhedral compiler and can reduce the scheduling time by a factor of 6 without inducing a significant loss in optimization opportunities is introduced.
+
+\subsection{Polyhedral Compilation for Racetrack Memories}
+In \cite{khan2020polyhedral}, they present the first automatic compilation framework that optimizes static loop programs over arrays for linear-latency memories, extending the polyhedral compilation framework Polly to generate code that maximizes accesses to the same or consecutive locations, thereby minimizing the number of shifts.
+
+\subsection{Polyhedral Compilation for Multi-dimensional Stream Processing}
+In \cite{leben2019polyhedral}, they present a method that involves a novel polyhedral schedule transformation called periodic tiling that enables efficient execution of programming languages with unbounded recurrence equations, as well as optimization of existing languages from which this form can be derived.
+
+\subsection{An Autotuning Framework for Scalable Execution of Tiled Code via Iterative Polyhedral Compilation}
+
 \subsection{Employing polyhedral methods to optimize stencils on FPGAs with stencil-specific caches, data reuse, and wide data bursts}
 
 \subsection{Modelling linear algebra kernels as polyhedral volume operations}
+
+\subsection{Automated Partitioning of Data-Parallel Kernels using Polyhedral Compilation}
 
 \subsection{Superloop Scheduling: Loop Optimization via Direct Statement Instance Reordering}
 In \cite{bastoul2023superloop}, they propose a different approach to affine scheduling construction called superloop scheduling. A 7-step loop optimization process:
@@ -21,7 +42,7 @@ Two families of techniques for affine scheduling construction:
 \end{itemize}
 However, in this work, they present the seed for a new family that builds affine scheduling from finest-grain statement instance reordering and loop reconstruction. Which could have a significant potential for exploiting custom vector instructions.
 
-\textbf{Important note:} presented at IMPACT 2023, a short (working?) paper.
+\textbf{Important note:} presented at IMPACT 2023, a short (working) paper.
 
 \subsection{Pipelined Multithreading Generation in a Polyhedral Compiler}
 
