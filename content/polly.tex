@@ -1,14 +1,66 @@
 \section{Polyhedral}\label{sec:polly}
+Topics (taken from IMPACT CFP):
+\begin{itemize}
+    \item Program optimization (automatic parallelization, tiling, etc.)
+    \item Code generation.
+    \item Data/communication management on GPUs, accelerators and distributed systems.
+    \item Hardware/high-level synthesis for affine programs.
+    \item Static analysis.
+    \item Program verification.
+    \item Model checking.
+    \item Theoretical foundations of the polyhedral model.
+    \item Extensions of the polyhedral model.
+    \item Scalability and robustness of polyhedral compilation techniques.
+\end{itemize}
+
+\subsection{The Polyhedral Model Is More Widely Applicable Than You Think}
+\cite{Benabderrahmane2010ThePM}
+
+\subsection{Modelling linear algebra kernels as polyhedral volume operations}
+In \cite{friebel2022modelling}, programs are represented as sequences of operations on indexed volumes characterized by their element-wise dependencies, efficiently implementing compound kernels by partitioning and specializing over index domains.
+\begin{itemize}
+    \item They generalize over arrays and define a volume as an aggregate value comprising indexed element values (scalars). Volume is characterized by an index domain, which is a polyhedron of all element indices.
+    \item Volumes permit arbitrary polyhedral index domains and are intended to model the structural properties of data, as well as memory when needed.
+    \item They perform dynamic shape inference of input/output/intermediate volumes. They use affine pattern matching to identify regions of interest (sparse regions in a volume) and specialize over them. They separate computation from memory (operational semantics based on general affine volumes, not strictly hyperrectangular ones).
+    \item The proposed model can be used on the MLIR linalg abstraction to generalize tiling and other partitioning transformations to arbitrary tensor programs.
+\end{itemize}
+The main idea is to detect sparsity and other structural properties, and act on them by partitioning computations. State-of-the-art compilers struggle to separate the different regions of the program, which may lead to sub-optimal performance. However, their model can conveniently identify all kernel regions, i.e., dense, sparse, constant, and corners. This empowers specializing over these regions, e.g., by using sparse compiler optimizations for sparse regions or offloading them to a sparsity-aware hardware target and mapping dense regions to external library calls.
+
+\subsection{ParameTrick: Coefficient Generalization for Faster Polyhedral Scheduling}
+In \cite{consolaro24-parametrick}, 
+
 \subsection{A practical tile size selection model for affine loop nests}
 
 \subsection{Maximal Atomic irRedundant Sets: a Usage-based Dataflow Partitioning Algorithm}
+
+\subsection{A polyhedral compilation framework for loops with dynamic data-dependent bounds}
+
+\subsection{Generating SIMD Instructions for Cerebras CS-1 using Polyhedral Compilation Techniques}
+In \cite{verdoolaege2020generating}, they use polyhedral compilation to generate SIMD instructions for the cerebras cs-1 computing system. More precisely, they use polyhedral operations such as variable compression and fixed-sized box hull.
+\begin{itemize}
+    \item SIMD engine that can mimic a rectangular loop nest of depth at most four. For this, is important to represent the set of computation instances as a rectangular domain.
+    \item They rely on \textit{isl} library for manipulating sets of integer tuples described by Presburger formulas (a first order logic formula involving affine expressions, equality and the less-than-or-equal relation). 
+    \item Variable compression exploits the equality constraints in the description of a set to obtain a set with the same number of points, but of a lower dimensionality.
+    \item Fixed-size box hull operation examines the constraints of a binary relation to find an overapproximation where the range can be described as a rectangular box with fixed size and an offset that depends on the domain variables and the symbolic constants.
+    \item Target architecture: MPPA (Massively Parallel Processor Array), consisting of a 2-dimensional grid of PEs (processing elements) that communicate with their nearest neighbors in the four cardinal directions. Memory distributed overt the PEs and hardware performs dataflow scheduling. (not much public details).
+\end{itemize}
+The main idea is to expose rectangle sets of operations that can be mapped to the advanced SIMD operations of the Cerebras CS-1 architecture.
 
 \subsection{Polygeist: Affine C in MLIR}
 
 \subsection{Automatic multi-dimensional pipelining for high-level synthesis of dataflow accelerators}
 
+\subsection{Tile size selection of affine programs for GPGPUs using polyhedral cross-compilation}
+In \cite{Abdelaal2021TileSS}, they use Integer Linear Programming (ILP) constraints and objectives in a cross-compiler fashion to faithfully and effectively mimic the transformations applied in a polyhedral GPU compiler (PPCG) to compute resource-conscious tile sizes for affine programs.
+
+\subsection{PolySA: Polyhedral-Based Systolic Array Auto-Compilation}
+In \cite{Cong2018PolySAPS}, they present PolySA, the first fully automated compilation framework for generating high performance systolic array architectures on the FPGA that leverages recent advances in high-level synthesis and can generate optimal designs in one hour with performance comparable to state-of-the-art manual designs.
+
+\subsection{AutoSA: A Polyhedral Compiler for High-Performance Systolic Arrays on FPGA}
+In \cite{Wang2021AutoSAAP}, they present AutoSA, an end-to-end compilation framework for generating systolic arrays on FPGA, based on the polyhedral framework, and further incorporates a set of optimizations on different dimensions to boost performance.
+
 \subsection{Scalable Polyhedral Compilation, Syntax vs. Semantics: 1–0 in the First Round}
-In \cite{48842}, a family of techniques called offline statement clustering, which integrates transparently into the flow of a state-of-the-art polyhedral compiler and can reduce the scheduling time by a factor of 6 without inducing a significant loss in optimization opportunities is introduced.
+In \cite{48842}, a family of techniques is introduced called offline statement clustering, which integrates transparently into the flow of a state-of-the-art polyhedral compiler and can reduce the scheduling time by a factor of 6 without inducing a significant loss in optimization opportunities.
 
 \subsection{Polyhedral Compilation for Racetrack Memories}
 In \cite{khan2020polyhedral}, they present the first automatic compilation framework that optimizes static loop programs over arrays for linear-latency memories, extending the polyhedral compilation framework Polly to generate code that maximizes accesses to the same or consecutive locations, thereby minimizing the number of shifts.
@@ -19,6 +71,12 @@ In \cite{leben2019polyhedral}, they present a method that involves a novel polyh
 \subsection{An Autotuning Framework for Scalable Execution of Tiled Code via Iterative Polyhedral Compilation}
 
 \subsection{Employing polyhedral methods to optimize stencils on FPGAs with stencil-specific caches, data reuse, and wide data bursts}
+In \cite{mayer24-fpgas}, polyhedral methods are used to generate stencil-specific cache-structures of the right sizes on the FPGA and to fill and flush them efficiently with wide bursts during stencil execution. They derive the appropriate directives and code restructurings from stencil codes so that the FPGA compiler generates fast stencil hardware.
+\begin{itemize}
+    \item From previous attempts: HLS cannot turn the tiled loop into hardware pipelines (as the loop boundaries and increments are too complex for the HLS to detect patterns). On CPUs or GPUs tiled loops run faster since their data locality exploits the built-in cache hierarchy, however, on FPGAs there are no caches, there is no benefit from tiling alone. In general, the HLS generates from the tiled loop a hardware block (kernel) with connections to an FPGA bus through which the kernel directly talks to the DDR.
+    \item Polyhedral methods are used to understand the access patterns we can statically determine (a) the stencil-specific best cache sizes and (b) pre-load exactly what is needed and spill what is no longer needed. But the polyhedral method can also (c) help improve the burst behavior. They also (d) inline the cache functionality, i.e., use buffer arrays and load operations within the stencil.
+\end{itemize}
+This work uses loop tiling to improve locality, adds buffers and directives to generate inlined cache-like hardware circuits that exploit that locality, and calculates a data-shipment that uses wide bursts to fill these caches, i.e., a polyhedral-based code generator for FPGAs.
 
 \subsection{Modelling linear algebra kernels as polyhedral volume operations}
 
