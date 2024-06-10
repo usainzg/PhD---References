@@ -223,3 +223,60 @@
               year      = 2024,
               url       = {https://impact-workshop.org/impact2024/#mayer24-fpgas},
             }
+
+@inproceedings{bondhugulaCompilingAffineLoop2013,
+  author       = {Uday Bondhugula},
+  editor       = {William Gropp and
+                  Satoshi Matsuoka},
+  title        = {Compiling affine loop nests for distributed-memory parallel architectures},
+  booktitle    = {International Conference for High Performance Computing, Networking,
+                  Storage and Analysis, SC'13, Denver, CO, {USA} - November 17 - 21,
+                  2013},
+  pages        = {33:1--33:12},
+  publisher    = {{ACM}},
+  year         = {2013},
+  url          = {https://doi.org/10.1145/2503210.2503289},
+  doi          = {10.1145/2503210.2503289},
+  timestamp    = {Wed, 16 Oct 2019 14:14:57 +0200},
+  biburl       = {https://dblp.org/rec/conf/sc/Bondhugula13.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{dathathriDynamicMemoryAccess2013,
+  author       = {Mikhail A. Gorelov and
+                  Lev Mukhanov},
+  editor       = {Christian Fensch and
+                  Michael F. P. O'Boyle and
+                  Andr{\'{e}} Seznec and
+                  Fran{\c{c}}ois Bodin},
+  title        = {Dynamic memory access monitoring based on tagged memory},
+  booktitle    = {Proceedings of the 22nd International Conference on Parallel Architectures
+                  and Compilation Techniques, Edinburgh, United Kingdom, September 7-11,
+                  2013},
+  pages        = {409},
+  publisher    = {{IEEE} Computer Society},
+  year         = {2013},
+  url          = {https://doi.org/10.1109/PACT.2013.6618840},
+  doi          = {10.1109/PACT.2013.6618840},
+  timestamp    = {Fri, 24 Mar 2023 00:02:44 +0100},
+  biburl       = {https://dblp.org/rec/conf/IEEEpact/GorelovM13.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{reddyEffectiveAutomaticComputation2014,
+author = {Reddy, Chandan and Bondhugula, Uday},
+title = {Effective automatic computation placement and data allocation for parallelization of regular programs},
+year = {2014},
+isbn = {9781450326421},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2597652.2597673},
+doi = {10.1145/2597652.2597673},
+abstract = {This paper proposes techniques for data allocation and computation mapping when compiling affine loop nest sequences for distributed-memory clusters.Techniques for transformation and detection of parallelism, and generation of communication sets relying on the polyhedral framework already exist. However, these recent approaches used a simple strategy to map computation to nodes -- typically block or block-cyclic. These mappings may lead to excess communication volume for multiple loop nests. In addition, the data allocation strategy used did not permit efficient weak scaling. We address these complementary problems by proposing automatic techniques to determine computation placements for identified parallelism and allocation of data. Our approach for data allocation is driven by tiling of data spaces along with a scheme to allocate and deallocate tiles on demand and reuse them. We show that our approach for computation mapping yields more effective mappings than those that can be developed using vendor-supplied libraries. Experimental results on some sequences of BLAS calls demonstrate a mean speedup of 1.82x over versions written with ScaLAPACK. Besides enabling weak scaling for distributed memory, data tiling also improves locality for shared-memory parallelization. Experimental results on a 32-core shared-memory SMP system shows a mean speedup of 2.67x over code that is not data tiled.},
+booktitle = {Proceedings of the 28th ACM International Conference on Supercomputing},
+pages = {13–22},
+numpages = {10},
+keywords = {automatic parallelization, computation placement, data distribution, distributed memory, polyhedral model},
+location = {Munich, Germany},
+series = {ICS '14}
+}
