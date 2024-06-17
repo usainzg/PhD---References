@@ -24,8 +24,46 @@
 % \cleardoublepage
 % \input{content/polly}
 
-\section{Polyhedral introduction}\label{sec:polly_intro}
+\section{Compiler-based distributed computing techniques (thesis title?)}
+\subsection{Summary}
+Compute-intensive applications running on clusters of shared-memory computers typically utilize OpenMP and MPI for implementation. These applications are challenging to program, debug, and maintain. Additionally, achieving performance portability is often limited, requiring several program transformations at multiple levels of the software and hardware stack to leverage features like parallelism and granularity. Finally, specific characteristics of the target system, such as network topology and node capacity, must be considered to achieve high-performing code.
 
+Performance portability and user productivity are major concerns for modern compilers, as significant code reorganization and restructuring are often required to adapt applications to the resources of a computer cluster. Consequently, polyhedral auto-transformation frameworks have garnered significant interest in general-purpose compilation due to their capability to identify and implement complex loop transformations that extract high performance from modern architectures. These frameworks automatically identify loop transformations that enhance locality, parallelism, minimize latency, or achieve a combination of these improvements.
+
+\begin{itemize}
+    \item In this thesis... we try to combine polyhedral compilation techniques and domain-specific knowledge to solve distributed computing problems such as scheduling or communication optimization... ok?
+\end{itemize}
+
+\subsection{Background}
+The polyhedral model is a mathematical representation of programs that simplifies both analysis and restructuring. It provides a compact and expressive way to describe parallelization and optimization problems. Unlike operational or syntactic representations, this model is closer to program execution because it operates on individual statement iterations or instances. For each instance, the optimizing algorithm computes a mapping to determine the execution time (time mapping or scheduling) and/or the processor on which it will run (space mapping or placement) \cite{}.
+
+\begin{itemize}
+    \item Pioneer work, how polyhedral is integrated into compilers, general workflow (dep analysis, schedule transformation, code generation).
+    \item Previous work on automatic parallelization in distributed computing using polyhedral. Difficult to add relevant information such as topology or nodes capacity.
+    \item More?
+\end{itemize}
+
+\subsection{Objectives}
+Based on the issues outlined in the previous section, the research question to be addressed in this Ph.D. thesis is: ...
+
+\subsection{Methodology}
+The research methodology employed in this thesis is based on an experimental approach and a software engineering method encompassing four stages: observing existing solutions, proposing improved solutions, developing the proposed solutions, and measuring and analyzing the outcomes \cite{adrion1993research}. This iterative methodology is repeated to refine the solutions. It parallels the stages of the classical scientific method: proposing a question, formulating a hypothesis, making predictions, and validating the hypothesis.
+
+\begin{enumerate}
+    \item Observe existing solutions: this is an exploratory phase where the literature and state-of-the-art tools related to our research field are studied to identify potential improvements.
+    \item Propose better solutions: this phase focuses on designing and analyzing improved solutions, aiming to surpass the limitations of previous proposals or enhance existing methods from the literature.
+    \item Build or develop the solutions: in this phase, we concentrate on constructing a prototype to demonstrate the feasibility of the solution.
+    \item Measure and analyze the new solutions: finally, the implemented prototypes are empirically evaluated and compared with various alternatives. The goal of this evaluation is to validate the proposed solution and confirm that the problems identified in the initial step have been resolved.
+\end{enumerate}
+
+\subsection{Work plan}
+\subsubsection{Part I: Topology-aware distributed data communication optimization?}
+\subsubsection{Part II: ...}
+
+
+\subsection{Scientific or social interest}
+
+most outstanding bibliography expressly comprising the following: a) Whether or not it is expected that the objectives of the Doctoral Thesis project and its defense are achieved by the applicant in the 3 years of full-time help and b) That the project will abide by the applicable ethical principles (maximum 5 pages, Arial 9 single line spacing) 
 
 \section{Polyhedral papers}\label{sec:polly_papers}
 \subsection{Topics (taken from IMPACT CFP)}
