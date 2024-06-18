@@ -457,3 +457,148 @@ series = {ICS '14}
   biburl       = {https://dblp.org/rec/conf/pldi/PouchetBCC08.bib},
   bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
+
+@inproceedings{ClassenG06,
+  author       = {Michael Classen and
+                  Martin Griebl},
+  title        = {Automatic code generation for distributed memory architectures in
+                  the polytope model},
+  booktitle    = {20th International Parallel and Distributed Processing Symposium {(IPDPS}
+                  2006), Proceedings, 25-29 April 2006, Rhodes Island, Greece},
+  publisher    = {{IEEE}},
+  year         = {2006},
+  url          = {https://doi.org/10.1109/IPDPS.2006.1639500},
+  doi          = {10.1109/IPDPS.2006.1639500},
+  timestamp    = {Fri, 24 Mar 2023 00:02:00 +0100},
+  biburl       = {https://dblp.org/rec/conf/ipps/ClassenG06.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+@article{10.1145/173262.155102,
+author = {Amarasinghe, Saman P. and Lam, Monica S.},
+title = {Communication optimization and code generation for distributed memory machines},
+year = {1993},
+issue_date = {June 1993},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {28},
+number = {6},
+issn = {0362-1340},
+url = {https://doi.org/10.1145/173262.155102},
+doi = {10.1145/173262.155102},
+abstract = {This paper presents several algorithms to solve code generation and optimization problems specific to machines with distributed address spaces. Given a description of how the computation is to be partitioned across the processors in a machine, our algorithms produce an SPMD (single program multiple data) program to be run on each processor. Our compiler generated the necessary receive and send instructions, optimizes the communication by eliminating redundant communication and aggregating small messages into large messages, allocates space locally on each processor, and translates global data addresses to local addresses.Our techniques are based on an exact data-flow analysis on individual array element accesses. Unlike data dependence analysis, this analysis determines if two dynamic instances refer to the same value, and not just to the same location. Using this information, our compiler can handle more flexible data decompositions and find more opportunities for communication optimization than systems based on data dependence analysis.Our technique is based on a uniform framework, where data decompositions, computation decompositions and the data flow information are all represented as systems of linear inequalities. We show that the problems of communication code generation, local memory management, message aggregation and redundant data communication elimination can all be solved by projecting polyhedra represented by sets of inequalities onto lower dimensional spaces.},
+journal = {SIGPLAN Not.},
+month = {jun},
+pages = {126–138},
+numpages = {13}
+}
+
+@inproceedings{Bastoul04,
+  author       = {C{\'{e}}dric Bastoul},
+  title        = {Code Generation in the Polyhedral Model Is Easier Than You Think},
+  booktitle    = {13th International Conference on Parallel Architectures and Compilation
+                  Techniques {(PACT} 2004), 29 September - 3 October 2004, Antibes Juan-les-Pins,
+                  France},
+  pages        = {7--16},
+  publisher    = {{IEEE} Computer Society},
+  year         = {2004},
+  url          = {https://doi.ieeecomputersociety.org/10.1109/PACT.2004.10018},
+  doi          = {10.1109/PACT.2004.10018},
+  timestamp    = {Fri, 24 Mar 2023 00:02:43 +0100},
+  biburl       = {https://dblp.org/rec/conf/IEEEpact/Bastoul04.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{BikshandiGHAFGPP06,
+  author       = {Ganesh Bikshandi and
+                  Jia Guo and
+                  Daniel Hoeflinger and
+                  Gheorghe Alm{\'{a}}si and
+                  Basilio B. Fraguela and
+                  Mar{\'{\i}}a Jes{\'{u}}s Garzar{\'{a}}n and
+                  David A. Padua and
+                  Christoph von Praun},
+  editor       = {Josep Torrellas and
+                  Siddhartha Chatterjee},
+  title        = {Programming for parallelism and locality with hierarchically tiled
+                  arrays},
+  booktitle    = {Proceedings of the {ACM} {SIGPLAN} Symposium on Principles and Practice
+                  of Parallel Programming, {PPOPP} 2006, New York, New York, USA, March
+                  29-31, 2006},
+  pages        = {48--57},
+  publisher    = {{ACM}},
+  year         = {2006},
+  url          = {https://doi.org/10.1145/1122971.1122981},
+  doi          = {10.1145/1122971.1122981},
+  timestamp    = {Sun, 12 Jun 2022 19:46:08 +0200},
+  biburl       = {https://dblp.org/rec/conf/ppopp/BikshandiGHAFGPP06.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DathathriMB16,
+  author       = {Roshan Dathathri and
+                  Ravi Teja Mullapudi and
+                  Uday Bondhugula},
+  title        = {Compiling Affine Loop Nests for a Dynamic Scheduling Runtime on Shared
+                  and Distributed Memory},
+  journal      = {{ACM} Trans. Parallel Comput.},
+  volume       = {3},
+  number       = {2},
+  pages        = {12:1--12:28},
+  year         = {2016},
+  url          = {https://doi.org/10.1145/2948975},
+  doi          = {10.1145/2948975},
+  timestamp    = {Sat, 25 Apr 2020 13:49:07 +0200},
+  biburl       = {https://dblp.org/rec/journals/topc/DathathriMB16.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Bondhugula13,
+  author       = {Uday Bondhugula},
+  editor       = {William Gropp and
+                  Satoshi Matsuoka},
+  title        = {Compiling affine loop nests for distributed-memory parallel architectures},
+  booktitle    = {International Conference for High Performance Computing, Networking,
+                  Storage and Analysis, SC'13, Denver, CO, {USA} - November 17 - 21,
+                  2013},
+  pages        = {33:1--33:12},
+  publisher    = {{ACM}},
+  year         = {2013},
+  url          = {https://doi.org/10.1145/2503210.2503289},
+  doi          = {10.1145/2503210.2503289},
+  timestamp    = {Wed, 16 Oct 2019 14:14:57 +0200},
+  biburl       = {https://dblp.org/rec/conf/sc/Bondhugula13.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{ReddyB14,
+  author       = {Chandan Reddy and
+                  Uday Bondhugula},
+  editor       = {Arndt Bode and
+                  Michael Gerndt and
+                  Per Stenstr{\"{o}}m and
+                  Lawrence Rauchwerger and
+                  Barton P. Miller and
+                  Martin Schulz},
+  title        = {Effective automatic computation placement and data allocation for parallelization
+                  of regular programs},
+  booktitle    = {2014 International Conference on Supercomputing, ICS'14, Muenchen,
+                  Germany, June 10-13, 2014},
+  pages        = {13--22},
+  publisher    = {{ACM}},
+  year         = {2014},
+  url          = {https://doi.org/10.1145/2597652.2597673},
+  doi          = {10.1145/2597652.2597673},
+  timestamp    = {Thu, 28 Apr 2022 17:38:13 +0200},
+  biburl       = {https://dblp.org/rec/conf/ics/ReddyB14.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{yuki2013parametrically,
+  title={Parametrically tiled distributed memory parallelization of polyhedral programs},
+  author={Yuki, Tomofumi and Rajopadhye, Sanjay},
+  journal={Colorado State University, Tech. Rep. CS13-105},
+  year={2013},
+  publisher={Citeseer}
+}
