@@ -1,0 +1,212 @@
+\begin{thebibliography}{10}
+
+\bibitem{PouchetBCV07}
+Louis{-}No{\"{e}}l Pouchet, C{\'{e}}dric Bastoul, Albert Cohen, and Nicolas Vasilache.
+\newblock Iterative optimization in the polyhedral model: Part i, one-dimensional time.
+\newblock In {\em Fifth International Symposium on Code Generation and Optimization {(CGO} 2007), 11-14 March 2007, San Jose, California, {USA}}, pages 144--156. {IEEE} Computer Society, 2007.
+
+\bibitem{PouchetBCC08}
+Louis{-}No{\"{e}}l Pouchet, C{\'{e}}dric Bastoul, Albert Cohen, and John Cavazos.
+\newblock Iterative optimization in the polyhedral model: part ii, multidimensional time.
+\newblock In Rajiv Gupta and Saman~P. Amarasinghe, editors, {\em Proceedings of the {ACM} {SIGPLAN} 2008 Conference on Programming Language Design and Implementation, Tucson, AZ, USA, June 7-13, 2008}, pages 90--100. {ACM}, 2008.
+
+\bibitem{KarpMW67}
+Richard~M. Karp, Raymond~E. Miller, and Shmuel Winograd.
+\newblock The organization of computations for uniform recurrence equations.
+\newblock {\em J. {ACM}}, 14(3):563--590, 1967.
+
+\bibitem{LoechnerW97}
+Vincent Loechner and Doran~K. Wilde.
+\newblock Parameterized polyhedra and their vertices.
+\newblock {\em Int. J. Parallel Program.}, 25(6):525--549, 1997.
+
+\bibitem{PughW93}
+William~W. Pugh and David Wonnacott.
+\newblock An exact method for analysis of value-based array data dependences.
+\newblock In Utpal Banerjee, David Gelernter, Alexandru Nicolau, and David~A. Padua, editors, {\em Languages and Compilers for Parallel Computing, 6th International Workshop, Portland, Oregon, USA, August 12-14, 1993, Proceedings}, volume 768 of {\em Lecture Notes in Computer Science}, pages 546--566. Springer, 1993.
+
+\bibitem{PughW94}
+William~W. Pugh and David Wonnacott.
+\newblock Static analysis of upper and lower bounds on dependences and parallelism.
+\newblock {\em {ACM} Trans. Program. Lang. Syst.}, 16(4):1248--1278, 1994.
+
+\bibitem{GrosserGL12}
+Tobias Grosser, Armin Gr{\"{o}}{\ss}linger, and Christian Lengauer.
+\newblock Polly - performing polyhedral optimizations on a low-level intermediate representation.
+\newblock {\em Parallel Process. Lett.}, 22(4), 2012.
+
+\bibitem{lattner_mlir_2020}
+Chris Lattner, Mehdi Amini, Uday Bondhugula, Albert Cohen, Andy Davis, Jacques Pienaar, River Riddle, Tatiana Shpeisman, Nicolas Vasilache, and Oleksandr Zinenko.
+\newblock {MLIR}: {A} {Compiler} {Infrastructure} for the {End} of {Moore}'s {Law}, February 2020.
+\newblock arXiv:2002.11054 [cs].
+
+\bibitem{uday08cc}
+Uday Bondhugula, Muthu Baskaran, Sriram Krishnamoorthy, J.~Ramanujam, A.~Rountev, and P.~Sadayappan.
+\newblock Automatic transformations for communication-minimized parallelization and locality optimization in the polyhedral model.
+\newblock In {\em International Conference on Compiler Construction (ETAPS CC)}, April 2008.
+
+\bibitem{uday08pldi}
+Uday Bondhugula, Albert Hartono, J.~Ramanujam, and P.~Sadayappan.
+\newblock A practical automatic polyhedral program optimization system.
+\newblock In {\em ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI)}, June 2008.
+
+\bibitem{Verdoolaege2013PPCG}
+Sven Verdoolaege, Juan~Carlos Juega, Albert Cohen, Jos{\'e}~Ignacio G\'{o}mez, Christian Tenllado, and Francky Catthoor.
+\newblock Polyhedral parallel code generation for cuda.
+\newblock {\em ACM Trans. Archit. Code Optim.}, 9(4):54:1--54:23, January 2013.
+
+\bibitem{Bastoul04}
+C{\'{e}}dric Bastoul.
+\newblock Code generation in the polyhedral model is easier than you think.
+\newblock In {\em 13th International Conference on Parallel Architectures and Compilation Techniques {(PACT} 2004), 29 September - 3 October 2004, Antibes Juan-les-Pins, France}, pages 7--16. {IEEE} Computer Society, 2004.
+
+\bibitem{10.1145/173262.155102}
+Saman~P. Amarasinghe and Monica~S. Lam.
+\newblock Communication optimization and code generation for distributed memory machines.
+\newblock {\em SIGPLAN Not.}, 28(6):126–138, jun 1993.
+
+\bibitem{ClassenG06}
+Michael Classen and Martin Griebl.
+\newblock Automatic code generation for distributed memory architectures in the polytope model.
+\newblock In {\em 20th International Parallel and Distributed Processing Symposium {(IPDPS} 2006), Proceedings, 25-29 April 2006, Rhodes Island, Greece}. {IEEE}, 2006.
+
+\bibitem{BikshandiGHAFGPP06}
+Ganesh Bikshandi, Jia Guo, Daniel Hoeflinger, Gheorghe Alm{\'{a}}si, Basilio~B. Fraguela, Mar{\'{\i}}a~Jes{\'{u}}s Garzar{\'{a}}n, David~A. Padua, and Christoph von Praun.
+\newblock Programming for parallelism and locality with hierarchically tiled arrays.
+\newblock In Josep Torrellas and Siddhartha Chatterjee, editors, {\em Proceedings of the {ACM} {SIGPLAN} Symposium on Principles and Practice of Parallel Programming, {PPOPP} 2006, New York, New York, USA, March 29-31, 2006}, pages 48--57. {ACM}, 2006.
+
+\bibitem{DathathriMB16}
+Roshan Dathathri, Ravi~Teja Mullapudi, and Uday Bondhugula.
+\newblock Compiling affine loop nests for a dynamic scheduling runtime on shared and distributed memory.
+\newblock {\em {ACM} Trans. Parallel Comput.}, 3(2):12:1--12:28, 2016.
+
+\bibitem{Bondhugula13}
+Uday Bondhugula.
+\newblock Compiling affine loop nests for distributed-memory parallel architectures.
+\newblock In William Gropp and Satoshi Matsuoka, editors, {\em International Conference for High Performance Computing, Networking, Storage and Analysis, SC'13, Denver, CO, {USA} - November 17 - 21, 2013}, pages 33:1--33:12. {ACM}, 2013.
+
+\bibitem{ReddyB14}
+Chandan Reddy and Uday Bondhugula.
+\newblock Effective automatic computation placement and data allocation for parallelization of regular programs.
+\newblock In Arndt Bode, Michael Gerndt, Per Stenstr{\"{o}}m, Lawrence Rauchwerger, Barton~P. Miller, and Martin Schulz, editors, {\em 2014 International Conference on Supercomputing, ICS'14, Muenchen, Germany, June 10-13, 2014}, pages 13--22. {ACM}, 2014.
+
+\bibitem{yuki2013parametrically}
+Tomofumi Yuki and Sanjay Rajopadhye.
+\newblock Parametrically tiled distributed memory parallelization of polyhedral programs.
+\newblock {\em Colorado State University, Tech. Rep. CS13-105}, 2013.
+
+\bibitem{adrion1993research}
+W~Richards Adrion.
+\newblock Research methodology in software engineering.
+\newblock In {\em Summary of the Dagstuhl workshop on future directions in software engineering” Ed. Tichy, Habermann, and Prechelt, ACM software engineering notes, SIGSoft}, volume~18, pages 36--37, 1993.
+
+\bibitem{Benabderrahmane2010ThePM}
+Mohamed-Walid Benabderrahmane, Louis-No{\"e}l Pouchet, Albert Cohen, and C{\'e}dric Bastoul.
+\newblock The polyhedral model is more widely applicable than you think.
+\newblock In {\em International Conference on Compiler Construction}, 2010.
+
+\bibitem{friebel2022modelling}
+Karl~FA Friebel, Asif~Ali Khan, Lorenzo Chelini, and Jeronimo Castrillon.
+\newblock Modelling linear algebra kernels as polyhedral volume operations, 2022.
+
+\bibitem{consolaro24-parametrick}
+Gianpietro Consolaro, Harenome Razanajato, Nelson Lossing, Denis Barthou, Zhen Zhang, Corinne Ancourt, and C\'{e}dric Bastoul.
+\newblock Parametrick: Coefficient generalization for faster polyhedral scheduling.
+\newblock In {\em 14th International Workshop on Polyhedral Compilation Techniques (IMPACT 2024, in conjunction with HiPEAC 2024)}, 2024.
+
+\bibitem{verdoolaege2020generating}
+Sven Verdoolaege, Manjunath Kudlur, Rob Schreiber, and Harinath Kamepalli.
+\newblock Generating simd instructions for cerebras cs-1 using polyhedral compilation techniques.
+\newblock In {\em IMPACT 2020-10th International Workshop on Polyhedral Compilation Techniques}, 2020.
+
+\bibitem{Abdelaal2021TileSS}
+Kh.~K. Abdelaal and Martin Kong.
+\newblock Tile size selection of affine programs for gpgpus using polyhedral cross-compilation.
+\newblock {\em Proceedings of the ACM International Conference on Supercomputing}, 2021.
+
+\bibitem{Cong2018PolySAPS}
+Jason Cong and Jie Wang.
+\newblock Polysa: Polyhedral-based systolic array auto-compilation.
+\newblock {\em 2018 IEEE/ACM International Conference on Computer-Aided Design (ICCAD)}, pages 1--8, 2018.
+
+\bibitem{Wang2021AutoSAAP}
+Jie Wang, Licheng Guo, and Jason Cong.
+\newblock Autosa: A polyhedral compiler for high-performance systolic arrays on fpga.
+\newblock {\em The 2021 ACM/SIGDA International Symposium on Field-Programmable Gate Arrays}, 2021.
+
+\bibitem{48842}
+Riyadh Baghdadi and Albert Cohen.
+\newblock Scalable polyhedral compilation, syntax vs. semantics: 1–0 in the first round.
+\newblock In {\em IMPACT 2020 workshop (associated with HIPEAC 2020)}, 2020.
+\newblock Informal proceedings.
+
+\bibitem{khan2020polyhedral}
+Asif~Ali Khan, Hauke Mewes, Tobias Grosser, Torsten Hoefler, and Jeronimo Castrillon.
+\newblock Polyhedral compilation for racetrack memories.
+\newblock {\em IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems}, 39(11):3968--3980, 2020.
+
+\bibitem{leben2019polyhedral}
+Jakob Leben and George Tzanetakis.
+\newblock Polyhedral compilation for multi-dimensional stream processing.
+\newblock {\em ACM Transactions on Architecture and Code Optimization (TACO)}, 16(3):1--26, 2019.
+
+\bibitem{mayer24-fpgas}
+Florian Mayer, Julian Brandner, and Michael Philippsen.
+\newblock Employing polyhedral methods to optimize stencils on fpgas with stencil-specific caches, data reuse, and wide data bursts.
+\newblock In {\em 14th International Workshop on Polyhedral Compilation Techniques (IMPACT 2024, in conjunction with HiPEAC 2024)}, 2024.
+
+\bibitem{bastoul2023superloop}
+Cedric Bastoul, Alain Ketterlin, and Vincent Loechner.
+\newblock Superloop scheduling: Loop optimization via direct statement instance reordering.
+\newblock In {\em IMPACT 2023}, 2023.
+
+\bibitem{Mendis_2018}
+Charith Mendis and Saman Amarasinghe.
+\newblock goslp: globally optimized superword level parallelism framework.
+\newblock {\em Proceedings of the ACM on Programming Languages}, 2(OOPSLA):1–28, October 2018.
+
+\bibitem{ketterlin2008prediction}
+Alain Ketterlin and Philippe Clauss.
+\newblock Prediction and trace compression of data access addresses through nested loop recognition.
+\newblock In {\em Proceedings of the 6th annual IEEE/ACM international symposium on Code generation and optimization}, pages 94--103, 2008.
+
+\bibitem{bastoul2004code}
+C{\'e}dric Bastoul.
+\newblock Code generation in the polyhedral model is easier than you think.
+\newblock In {\em Proceedings. 13th International Conference on Parallel Architecture and Compilation Techniques, 2004. PACT 2004.}, pages 7--16. IEEE, 2004.
+
+\bibitem{feautrier1992some}
+Paul Feautrier.
+\newblock Some efficient solutions to the affine scheduling problem. part ii. multidimensional time.
+\newblock {\em International journal of parallel programming}, 21:389--420, 1992.
+
+\bibitem{bondhugula2008practical}
+Uday Bondhugula, Albert Hartono, Jagannathan Ramanujam, and Ponnuswamy Sadayappan.
+\newblock A practical automatic polyhedral parallelizer and locality optimizer.
+\newblock In {\em Proceedings of the 29th ACM SIGPLAN Conference on Programming Language Design and Implementation}, pages 101--113, 2008.
+
+\bibitem{kelly1998framework}
+Wayne Kelly and William Pugh.
+\newblock A framework for unifying reordering transformations, 1998.
+
+\bibitem{baghdadi2019tiramisu}
+Riyadh Baghdadi, Jessica Ray, Malek~Ben Romdhane, Emanuele Del~Sozzo, Abdurrahman Akkas, Yunming Zhang, Patricia Suriana, Shoaib Kamil, and Saman Amarasinghe.
+\newblock Tiramisu: A polyhedral compiler for expressing fast and portable code.
+\newblock In {\em 2019 IEEE/ACM International Symposium on Code Generation and Optimization (CGO)}, pages 193--205. IEEE, 2019.
+
+\bibitem{bondhugulaCompilingAffineLoop2013}
+Uday Bondhugula.
+\newblock Compiling affine loop nests for distributed-memory parallel architectures.
+\newblock In William Gropp and Satoshi Matsuoka, editors, {\em International Conference for High Performance Computing, Networking, Storage and Analysis, SC'13, Denver, CO, {USA} - November 17 - 21, 2013}, pages 33:1--33:12. {ACM}, 2013.
+
+\bibitem{dathathriDynamicMemoryAccess2013}
+Mikhail~A. Gorelov and Lev Mukhanov.
+\newblock Dynamic memory access monitoring based on tagged memory.
+\newblock In Christian Fensch, Michael F.~P. O'Boyle, Andr{\'{e}} Seznec, and Fran{\c{c}}ois Bodin, editors, {\em Proceedings of the 22nd International Conference on Parallel Architectures and Compilation Techniques, Edinburgh, United Kingdom, September 7-11, 2013}, page 409. {IEEE} Computer Society, 2013.
+
+\bibitem{reddyEffectiveAutomaticComputation2014}
+Chandan Reddy and Uday Bondhugula.
+\newblock Effective automatic computation placement and data allocation for parallelization of regular programs.
+\newblock In {\em Proceedings of the 28th ACM International Conference on Supercomputing}, ICS '14, page 13–22, New York, NY, USA, 2014. Association for Computing Machinery.
+
+\end{thebibliography}

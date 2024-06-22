@@ -1,0 +1,37 @@
+\backcite {PouchetBCV07, PouchetBCC08}{{3}{1.2}{subsection.1.2}}
+\backcite {KarpMW67}{{3}{1.2}{subsection.1.2}}
+\backcite {LoechnerW97}{{3}{1.2}{subsection.1.2}}
+\backcite {PughW93, PughW94}{{3}{1.2}{subsection.1.2}}
+\backcite {GrosserGL12}{{3}{1.2}{subsection.1.2}}
+\backcite {lattner_mlir_2020}{{3}{1.2}{subsection.1.2}}
+\backcite {uday08cc, uday08pldi}{{4}{1.2}{subsection.1.2}}
+\backcite {Verdoolaege2013PPCG}{{4}{1.2}{subsection.1.2}}
+\backcite {Bastoul04}{{4}{1.2}{subsection.1.2}}
+\backcite {10.1145/173262.155102}{{4}{1.2}{subsection.1.2}}
+\backcite {ClassenG06}{{4}{1.2}{subsection.1.2}}
+\backcite {BikshandiGHAFGPP06, DathathriMB16, Bondhugula13, ReddyB14, yuki2013parametrically}{{4}{1.2}{subsection.1.2}}
+\backcite {adrion1993research}{{5}{1.4}{subsection.1.4}}
+\backcite {Benabderrahmane2010ThePM}{{6}{2.3}{subsection.2.3}}
+\backcite {friebel2022modelling}{{7}{2.4}{subsection.2.4}}
+\backcite {consolaro24-parametrick}{{7}{2.5}{subsection.2.5}}
+\backcite {verdoolaege2020generating}{{8}{2.9}{subsection.2.9}}
+\backcite {Abdelaal2021TileSS}{{9}{2.12}{subsection.2.12}}
+\backcite {Cong2018PolySAPS}{{9}{2.13}{subsection.2.13}}
+\backcite {Wang2021AutoSAAP}{{9}{2.14}{subsection.2.14}}
+\backcite {48842}{{9}{2.15}{subsection.2.15}}
+\backcite {khan2020polyhedral}{{9}{2.16}{subsection.2.16}}
+\backcite {leben2019polyhedral}{{10}{2.17}{subsection.2.17}}
+\backcite {mayer24-fpgas}{{10}{2.19}{subsection.2.19}}
+\backcite {bastoul2023superloop}{{11}{2.22}{subsection.2.22}}
+\backcite {Mendis_2018}{{11}{2.22}{subsection.2.22}}
+\backcite {ketterlin2008prediction}{{11}{2.22}{subsection.2.22}}
+\backcite {bastoul2004code}{{11}{2.22}{subsection.2.22}}
+\backcite {feautrier1992some}{{11}{2.22}{subsection.2.22}}
+\backcite {bondhugula2008practical}{{11}{2.22}{subsection.2.22}}
+\backcite {feautrier1992some}{{12}{2.22}{subsection.2.22}}
+\backcite {bondhugula2008practical}{{12}{2.22}{subsection.2.22}}
+\backcite {kelly1998framework}{{12}{2.22}{subsection.2.22}}
+\backcite {baghdadi2019tiramisu}{{12}{2.22}{subsection.2.22}}
+\backcite {bondhugulaCompilingAffineLoop2013}{{12}{2.24}{subsection.2.24}}
+\backcite {dathathriDynamicMemoryAccess2013}{{12}{2.25}{subsection.2.25}}
+\backcite {reddyEffectiveAutomaticComputation2014}{{12}{2.26}{subsection.2.26}}
