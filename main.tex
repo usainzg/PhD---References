@@ -18,58 +18,60 @@
 \tableofcontents
 \clearpage
 
+\section{Survey}
+
 % \input{content/papers}
 % \cleardoublepage
 % \input{content/resources}
 % \cleardoublepage
 % \input{content/polly}
 
-\section{Compiler-based distributed computing techniques (\uwar{thesis title?})}
-\subsection{Summary}
-Compute-intensive applications running on clusters of shared-memory computers typically utilize OpenMP and MPI for implementation. These applications are challenging to program, debug, and maintain. Additionally, achieving performance portability is often limited, requiring several program transformations at multiple levels of the software and hardware stack to leverage features like parallelism and granularity. Finally, specific characteristics of the target system, such as network topology and node capacity, must be considered to achieve high-performing code.
+% \section{Compiler-based distributed computing techniques (\uwar{thesis title?})}
+% \subsection{Summary}
+% Compute-intensive applications running on clusters of shared-memory computers typically utilize OpenMP and MPI for implementation. These applications are challenging to program, debug, and maintain. Additionally, achieving performance portability is often limited, requiring several program transformations at multiple levels of the software and hardware stack to leverage features like parallelism and granularity. Finally, specific characteristics of the target system, such as network topology and node capacity, must be considered to achieve high-performing code.
 
-Performance portability and user productivity are major concerns for modern compilers, as significant code reorganization and restructuring are often required to adapt applications to the resources of a computer cluster. Consequently, polyhedral auto-transformation frameworks have garnered significant interest in general-purpose compilation due to their capability to identify and implement complex loop transformations that extract high performance from modern architectures. These frameworks automatically identify loop transformations that enhance locality, parallelism, minimize latency, or achieve a combination of these improvements.
+% Performance portability and user productivity are major concerns for modern compilers, as significant code reorganization and restructuring are often required to adapt applications to the resources of a computer cluster. Consequently, polyhedral auto-transformation frameworks have garnered significant interest in general-purpose compilation due to their capability to identify and implement complex loop transformations that extract high performance from modern architectures. These frameworks automatically identify loop transformations that enhance locality, parallelism, minimize latency, or achieve a combination of these improvements.
 
-In this thesis, we try to improve the applicability and profitability of polyhedral-model-based techniques for distributed computing challenges, such as scheduling and communication optimization. Specifically, we enrich the polyhedral program representation with domain-specific knowledge from distributed computing systems, e.g., network topology or nodes capacity.
+% In this thesis, we try to improve the applicability and profitability of polyhedral-model-based techniques for distributed computing challenges, such as scheduling and communication optimization. Specifically, we enrich the polyhedral program representation with domain-specific knowledge from distributed computing systems, e.g., network topology or nodes capacity.
 
-\subsection{Background}
-The polyhedral model is a mathematical representation of programs that simplifies both analysis and restructuring. It provides a compact and expressive way to describe parallelization and optimization problems. Unlike operational or syntactic representations, this model is closer to program execution because it operates on individual statement iterations or instances. For each instance, the optimizing algorithm computes a mapping to determine the execution time (time mapping or scheduling) and/or the processor on which it will run (space mapping or placement)~\cite{PouchetBCV07, PouchetBCC08}.
+% \subsection{Background}
+% The polyhedral model is a mathematical representation of programs that simplifies both analysis and restructuring. It provides a compact and expressive way to describe parallelization and optimization problems. Unlike operational or syntactic representations, this model is closer to program execution because it operates on individual statement iterations or instances. For each instance, the optimizing algorithm computes a mapping to determine the execution time (time mapping or scheduling) and/or the processor on which it will run (space mapping or placement)~\cite{PouchetBCV07, PouchetBCC08}.
 
-The pioneering work of the polyhedral model is attributed to Karp et al. on systems of uniform recurrence equations~\cite{KarpMW67}. With the advancement of polyhedral compilation, integer polyhedra~\cite{LoechnerW97} and Presburger relations~\cite{PughW93, PughW94} were introduced to enhance expressiveness and flexibility. Polyhedral compilation can either be integrated as a building block into general-purpose compilers, such as Polly in LLVM~\cite{GrosserGL12} and affine in MLIR~\cite{lattner_mlir_2020}, or serve as a source-to-source translator like Pluto~\cite{uday08cc, uday08pldi} and PPCG~\cite{Verdoolaege2013PPCG}. This flexibility and compatibility enable the construction of a well-defined compilation workflow and significantly extend its application domain.
+% The pioneering work of the polyhedral model is attributed to Karp et al. on systems of uniform recurrence equations~\cite{KarpMW67}. With the advancement of polyhedral compilation, integer polyhedra~\cite{LoechnerW97} and Presburger relations~\cite{PughW93, PughW94} were introduced to enhance expressiveness and flexibility. Polyhedral compilation can either be integrated as a building block into general-purpose compilers, such as Polly in LLVM~\cite{GrosserGL12} and affine in MLIR~\cite{lattner_mlir_2020}, or serve as a source-to-source translator like Pluto~\cite{uday08cc, uday08pldi} and PPCG~\cite{Verdoolaege2013PPCG}. This flexibility and compatibility enable the construction of a well-defined compilation workflow and significantly extend its application domain.
 
-Polyhedral compilation typically comprises three steps: modeling, transformation, and code generation. In the modeling step, a mathematical representation of the program is constructed using integer polyhedra and Presburger relations to capture the program's computational patterns. The transformation step then applies various optimizations, such as loop transformations, to enhance parallelism and data locality. Finally, the code generation step translates the optimized polyhedral model back into executable code.
+% Polyhedral compilation typically comprises three steps: modeling, transformation, and code generation. In the modeling step, a mathematical representation of the program is constructed using integer polyhedra and Presburger relations to capture the program's computational patterns. The transformation step then applies various optimizations, such as loop transformations, to enhance parallelism and data locality. Finally, the code generation step translates the optimized polyhedral model back into executable code.
 
-The polyhedral model has proven useful for transforming and generating parallel programs from sequential codes featuring affine loop nests~\cite{Bastoul04}. Additionally, it facilitates automatic code generation for distributed-memory platforms~\cite{10.1145/173262.155102}. The model's dependence analysis supports code generation by (1) identifying values requiring communication across processes, (2) managing data packing and unpacking, and (3) executing necessary communication operations. Griebl et al. presents the use of the polyhedral model on distributed-memory systems~\cite{ClassenG06}, but their approach suffers from significant redundancy in communication operations. Existing methods for calculating communication in distributed memory, such as those discussed in~\cite{BikshandiGHAFGPP06, DathathriMB16, Bondhugula13, ReddyB14, yuki2013parametrically}, focus on sequences of nested loops with regular (affine) accesses, known as affine loop nests. These methods involve loop transformation, tiling, and parallelization. However, they often overlook characteristics specific to the target distributed platform, such as heterogeneity of nodes, network topology, or node capacities.
+% The polyhedral model has proven useful for transforming and generating parallel programs from sequential codes featuring affine loop nests~\cite{Bastoul04}. Additionally, it facilitates automatic code generation for distributed-memory platforms~\cite{10.1145/173262.155102}. The model's dependence analysis supports code generation by (1) identifying values requiring communication across processes, (2) managing data packing and unpacking, and (3) executing necessary communication operations. Griebl et al. presents the use of the polyhedral model on distributed-memory systems~\cite{ClassenG06}, but their approach suffers from significant redundancy in communication operations. Existing methods for calculating communication in distributed memory, such as those discussed in~\cite{BikshandiGHAFGPP06, DathathriMB16, Bondhugula13, ReddyB14, yuki2013parametrically}, focus on sequences of nested loops with regular (affine) accesses, known as affine loop nests. These methods involve loop transformation, tiling, and parallelization. However, they often overlook characteristics specific to the target distributed platform, such as heterogeneity of nodes, network topology, or node capacities.
 
-\uwar{More?}
+% \uwar{More?}
 
-\subsection{Objectives}
-\uwar{ok? Plantilla?}
-Based on the issues outlined in the previous section, the research question to be addressed in this Ph.D. thesis is: ...
-\begin{itemize}
-    \item Is it possible to improve the application of polyhedral compilation to distributed systems by means of specific information such as topology?
-    \item Can we improve the techniques used in distributed systems with the help of compilers?
-\end{itemize}
+% \subsection{Objectives}
+% \uwar{ok? Plantilla?}
+% Based on the issues outlined in the previous section, the research question to be addressed in this Ph.D. thesis is: ...
+% \begin{itemize}
+%     \item Is it possible to improve the application of polyhedral compilation to distributed systems by means of specific information such as topology?
+%     \item Can we improve the techniques used in distributed systems with the help of compilers?
+% \end{itemize}
 
-\subsection{Methodology}
-\uwar{ok? Plantilla?}
-The research methodology employed in this thesis is based on an experimental approach and a software engineering method encompassing four stages: observing existing solutions, proposing improved solutions, developing the proposed solutions, and measuring and analyzing the outcomes \cite{adrion1993research}. This iterative methodology is repeated to refine the solutions. It parallels the stages of the classical scientific method: proposing a question, formulating a hypothesis, making predictions, and validating the hypothesis.
+% \subsection{Methodology}
+% \uwar{ok? Plantilla?}
+% The research methodology employed in this thesis is based on an experimental approach and a software engineering method encompassing four stages: observing existing solutions, proposing improved solutions, developing the proposed solutions, and measuring and analyzing the outcomes \cite{adrion1993research}. This iterative methodology is repeated to refine the solutions. It parallels the stages of the classical scientific method: proposing a question, formulating a hypothesis, making predictions, and validating the hypothesis.
 
-\begin{enumerate}
-    \item Observe existing solutions: this is an exploratory phase where the literature and state-of-the-art tools related to our research field are studied to identify potential improvements.
-    \item Propose better solutions: this phase focuses on designing and analyzing improved solutions, aiming to surpass the limitations of previous proposals or enhance existing methods from the literature.
-    \item Build or develop the solutions: in this phase, we concentrate on constructing a prototype to demonstrate the feasibility of the solution.
-    \item Measure and analyze the new solutions: finally, the implemented prototypes are empirically evaluated and compared with various alternatives. The goal of this evaluation is to validate the proposed solution and confirm that the problems identified in the initial step have been resolved.
-\end{enumerate}
+% \begin{enumerate}
+%     \item Observe existing solutions: this is an exploratory phase where the literature and state-of-the-art tools related to our research field are studied to identify potential improvements.
+%     \item Propose better solutions: this phase focuses on designing and analyzing improved solutions, aiming to surpass the limitations of previous proposals or enhance existing methods from the literature.
+%     \item Build or develop the solutions: in this phase, we concentrate on constructing a prototype to demonstrate the feasibility of the solution.
+%     \item Measure and analyze the new solutions: finally, the implemented prototypes are empirically evaluated and compared with various alternatives. The goal of this evaluation is to validate the proposed solution and confirm that the problems identified in the initial step have been resolved.
+% \end{enumerate}
 
-\subsection{Work plan}
-\uwar{Plantilla?}
-\subsubsection{Part I: Topology-aware distributed data communication optimization?}
-\subsubsection{Part II: ...}
+% \subsection{Work plan}
+% \uwar{Plantilla?}
+% \subsubsection{Part I: Topology-aware distributed data communication optimization?}
+% \subsubsection{Part II: ...}
 
-\subsection{Scientific or social interest}
+% \subsection{Scientific or social interest}
 
-\unote{Requisitos:} Memoria científico–técnica en formato normalizado del proyecto de tesis doctoral firmado por la persona directora del mismo, y codirectora si la hubiere, y cuyo contenido será el siguiente: título del proyecto, resumen, antecedentes, objetivos, metodología y plan de trabajo, interés científico y/o social y la bibliografía más destacada (máximo 5 páginas). Además de este contenido, dicha memoria deberá recoger expresamente lo siguiente: Si es o no esperable que los objetivos del proyecto de Tesis Doctoral y su defensa se alcancen por la persona solicitante en 3 años de ayuda con dedicación completa.
+% \unote{Requisitos:} Memoria científico–técnica en formato normalizado del proyecto de tesis doctoral firmado por la persona directora del mismo, y codirectora si la hubiere, y cuyo contenido será el siguiente: título del proyecto, resumen, antecedentes, objetivos, metodología y plan de trabajo, interés científico y/o social y la bibliografía más destacada (máximo 5 páginas). Además de este contenido, dicha memoria deberá recoger expresamente lo siguiente: Si es o no esperable que los objetivos del proyecto de Tesis Doctoral y su defensa se alcancen por la persona solicitante en 3 años de ayuda con dedicación completa.
 
 
 \section{Polyhedral papers}\label{sec:polly_papers}
